@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @zone.name %>
+</p>
+
+<p>
+  <b>Master:</b>
+  <%= @zone.master %>
+</p>
+
+<p>
+  <b>Key:</b>
+  <%= @zone.key %>
+</p>
+
+
+<%= link_to 'Edit', edit_zone_path(@zone) %> |
+<%= link_to 'Back', zones_path %>
