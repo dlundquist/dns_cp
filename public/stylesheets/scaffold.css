@@ -54,3 +54,27 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
+div.rr {
+  display: table-row;
+}
+div.rr div.name {
+  display: table-cell;
+  width: 200px;
+}
+div.rr div.ttl {
+  display: table-cell;
+  width: 40px;
+}
+div.rr div.cls {
+  display: table-cell;
+  width: 40px;
+}
+div.rr div.type {
+  display: table-cell;
+  width: 40px;
+}
+div.rr div.address {
+  display: table-cell;
+  width: 100px;
+}
