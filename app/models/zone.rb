@@ -8,4 +8,20 @@ class Zone < ActiveRecord::Base
 
         response.answer
     end
+
+    def nsupdate!
+	IO.popen('nsupdate', 'w') do |io|
+            io.puts "server #{master}"
+            io.puts "zone #{name}"
+            io.puts "key dns_cp-key #{key}"
+
+            # TODO add or remove records here
+
+            # Display our pending update
+            io.puts "show"
+            # Send it
+            io.puts "send"
+            io.puts "answer"
+        end
+    end
 end
