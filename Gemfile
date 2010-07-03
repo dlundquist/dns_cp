@@ -6,7 +6,7 @@ gem 'rails', '3.0.0.beta4'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'net-dns','0.6.1', :require => ['net/dns', 'net/dns/resolver'], :path => './vendor/gems/net-dns-0.6.1/'
+gem 'net-dns', :require => ['net/dns', 'net/dns/resolver']
 
 # Use unicorn as the web server
 # gem 'unicorn'
