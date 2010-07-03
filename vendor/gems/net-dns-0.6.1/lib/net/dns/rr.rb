@@ -245,10 +245,6 @@ module Net # :nodoc:
         @cls.to_s
       end
 
-      def self.model_name
-        self.class
-      end
-      
       private
 
         #---

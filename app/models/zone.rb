@@ -6,7 +6,7 @@ class Zone < ActiveRecord::Base
 
         response = res.axfr(self.name)
 
-        response.answer
+        response.answer.each { |i| i.class_eval("extend ActiveModel::Naming") } 
     end
 
     def nsupdate!
@@ -24,4 +24,8 @@ class Zone < ActiveRecord::Base
             io.puts "answer"
         end
     end
+end
+
+class ::Net::DNS::RR
+    extend ActiveModel::Naming
 end
