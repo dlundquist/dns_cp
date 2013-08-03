@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Zone:</b>
+  <%= @record.zone_id %>
+</p>
+
+<p>
+  <b>Ttl:</b>
+  <%= @record.ttl %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @record.name %>
+</p>
+
+<p>
+  <b>Cls:</b>
+  <%= @record.cls %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @record.type %>
+</p>
+
+<p>
+  <b>Rdata:</b>
+  <%= @record.rdata %>
+</p>
+
+
+<%= link_to 'Edit', edit_record_path(@record) %> |
+<%= link_to 'Back', records_path %>

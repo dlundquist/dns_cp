@@ -1,14 +1,9 @@
 class Zone < ActiveRecord::Base
+    has_many :records
+
     validates_uniqueness_of :name
 
-    def records
-	@records = fetch_records unless @records
-        @records
-    end
 
-    def records=(array)
-        @records = array
-    end
 
     def nsupdate!
 	IO.popen('nsupdate', 'w') do |io|
@@ -44,23 +39,25 @@ class Zone < ActiveRecord::Base
         @original_records - @records
     end
 
-    private
     def fetch_records
         res = Net::DNS::Resolver.new(:nameservers => (master || "localhost"))
 
         response = res.axfr(self.name)
 
-        @original_records = response.answer
-
-	# Return a deep copy so we can compare
-	@original_records.dup
+        response.answer.map{|rr| self.records.new(:rr => rr)}
     end
 end
 module Net
   module DNS
     class RR
       extend ActiveModel::Naming
+      include ActiveModel::Conversion
 
+      attr_accessor :id
+
+      def persisted?
+          false
+      end
       #------------------------------------------------------------
       # RR type SSHFP
       #------------------------------------------------------------

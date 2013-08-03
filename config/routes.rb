@@ -1,5 +1,9 @@
 DnsCp::Application.routes.draw do |map|
-  resources :zones
+  resources :records
+
+  resources :zones do
+    resources :records
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

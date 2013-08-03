@@ -1,0 +1,33 @@
+<h1>Listing records</h1>
+
+<table>
+  <tr>
+    <th>Zone</th>
+    <th>Ttl</th>
+    <th>Name</th>
+    <th>Cls</th>
+    <th>Type</th>
+    <th>Rdata</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @records.each do |record| %>
+  <tr>
+    <td><%= record.zone_id %></td>
+    <td><%= record.ttl %></td>
+    <td><%= record.name %></td>
+    <td><%= record.cls %></td>
+    <td><%= record.type %></td>
+    <td><%= record.rdata %></td>
+    <td><%= link_to 'Show', record %></td>
+    <td><%= link_to 'Edit', edit_record_path(record) %></td>
+    <td><%= link_to 'Destroy', record, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Record', new_record_path %>
